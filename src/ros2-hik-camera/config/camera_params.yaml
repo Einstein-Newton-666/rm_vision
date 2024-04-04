@@ -1,0 +1,7 @@
+/hik_camera:
+  ros__parameters:
+    camera_name: narrow_stereo
+    use_sensor_data_qos: true
+    exposure_time: 2000
+    gain: 8.0
+    gamma: 0.6

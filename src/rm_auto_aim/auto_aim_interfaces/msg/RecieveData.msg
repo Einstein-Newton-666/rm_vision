@@ -1,0 +1,14 @@
+std_msgs/Header header
+float32 pitch
+float32 yaw
+float32 roll
+float32 shoot_speed
+int32 current_color
+int32 enemies_blood_0
+int32 enemies_blood_1
+int32 enemies_blood_2
+int32 enemies_blood_3
+int32 enemies_blood_4
+int32 enemies_blood_5
+int32 enemies_outpost
+int32 attack_engineer

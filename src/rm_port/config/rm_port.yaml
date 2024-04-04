@@ -1,0 +1,6 @@
+/rm_port:
+  ros__parameters:
+    SerialPort_PortPath: /dev/ttyUSB0
+    baud_rate: 115200
+    timestamp_offset: -0.003
+    check_frequency: 0.5

@@ -1,0 +1,19 @@
+syntax="proto3";
+package device_to_host;
+message Frame{	
+	float Current_Pitch_=1;
+	float Current_Yaw_=2;
+	float Current_Roll_=3;
+	int32 Current_Color_=4;
+	float Bullet_Speed_=5;
+	int32 Mode_=6;
+	int32 Enemies_Blood_0=7;
+    int32 Enemies_Blood_1=8;
+	int32 Enemies_Blood_2=9;
+	int32 Enemies_Blood_3=10;
+	int32 Enemies_Blood_4=11;
+	int32 Enemies_Blood_5=12;
+	int32 Enemies_outpost=13;
+	int32 IfAttackEngineer=14;
+	int32 Reset_Tracker=15;
+}

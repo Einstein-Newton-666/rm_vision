@@ -1,0 +1,30 @@
+/rm_angle_solver:
+  ros__parameters:
+    #x,y,z坐标偏移量(世界至枪管),单位m
+    x_offset: 0.23
+    y_offset: 0.
+    z_offset: 0.
+    #yaw,pitch角度偏移量,单位度
+    yaw_offset: 0.
+    pitch_offset: 0.
+    #使用迭代法求解pitch补偿的最大迭代次数
+    max_iter: 10
+    #停止迭代的最小误差(单位m)
+    stop_error: 0.001
+    #龙格库塔法求解落点的迭代次数
+    R_K_iter: 60
+    #重力加速度
+    g: 9.781
+    #常量，和弹丸有关
+    #大弹丸k = 0.00556，发光大弹丸k = 0.00530，小弹丸k = 0.01903
+    k: 0.01903
+    #射击延迟
+    delay_time: 0.03
+    #默认弹速(用于调试)
+    default_shoot_speed: 24.
+    #是否固定频率发送给电控数据，如果使用则会将观测到的数据进行异步预测和弹道解算
+    fix_frequency: true
+    #发送给电控的串口的频率
+    frequency: 200
+    #是否发送pitch轴角速度，计算pitch轴角速度需要迭代两次pitch轴补偿，消耗的算力较高
+    send_pitch_speed: false

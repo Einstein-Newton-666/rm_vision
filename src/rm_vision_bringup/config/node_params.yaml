@@ -1,0 +1,104 @@
+/galaxy_camera:
+  ros__parameters:
+    camera_info_url: package://rm_vision_bringup/config/camera_info.yaml
+    camera_index: 0
+    camera_name: galaxy_camera
+    flip_image: false
+    color_code: BG2BGR
+    red_blance: 1.66
+    blue_blance: 1.4844
+    green_blance: 1
+    exposure_time: 2000
+    gain: 6
+    use_sensor_data_qos: true
+    use_hard_trigger: false
+
+/hik_camera:
+  ros__parameters:
+    camera_info_url: package://rm_vision_bringup/config/camera_info.yaml
+    camera_name: narrow_stereo
+    use_sensor_data_qos: true
+
+    exposure_time: 2000
+    gain: 8.0
+    gamma: 0.6
+  
+
+/rm_serial_driver:
+  ros__parameters:
+    device_name: /dev/ttyUSB0
+    baud_rate: 115200
+    flow_control: none
+    parity: none
+    stop_bits: "1"
+
+/rm_port:
+  ros__parameters:
+    SerialPort_PortPath: /dev/ttyUSB0
+    baud_rate: 115200
+    timestamp_offset: 0.006
+    check_frequency: 0.5
+
+/armor_detector:
+  ros__parameters:
+    debug: true
+
+    binary_thres: 80
+
+    light.min_ratio: 0.08
+    armor.min_light_ratio: 0.7
+
+    classifier_threshold: 0.8
+    ignore_classes: ["negative"]
+
+
+/armor_tracker:
+  ros__parameters:
+    target_frame: odom
+    max_armor_distance: 10.0
+
+    ekf:
+      sigma2_q_xyz: 5e-2
+      sigma2_q_yaw: 1e1
+      sigma2_q_r: 80.0
+
+      r_xyz_factor: 2e-4
+      r_yaw: 5e-3
+
+    tracker:
+      max_match_distance: 0.15
+      max_match_yaw_diff: 1.0
+
+      tracking_thres: 3
+      lost_time_thres: 0.8
+
+/rm_angle_solver:
+  ros__parameters:
+    #x,y,z坐标偏移量(世界至枪管),单位m
+    x_offset: 0.23
+    y_offset: 0.
+    z_offset: 0.
+    #yaw,pitch角度偏移量,单位度
+    yaw_offset: 0.
+    pitch_offset: 0.
+    #使用迭代法求解pitch补偿的最大迭代次数
+    max_iter: 10
+    #停止迭代的最小误差(单位m)
+    stop_error: 0.001
+    #龙格库塔法求解落点的迭代次数
+    R_K_iter: 60
+    #重力加速度
+    g: 9.781
+    #常量，和弹丸有关
+    #大弹丸k = 0.00556，发光大弹丸k = 0.00530，小弹丸k = 0.01903
+    k: 0.01903
+    #射击延迟
+    delay_time: 0.03
+    #默认弹速(用于调试)
+    default_shoot_speed: 24.
+    #是否固定频率发送给电控数据，如果使用则会将观测到的数据进行异步预测和弹道解算
+    fix_frequency: true
+    #发送给电控的串口的频率
+    frequency: 200
+    #是否发送pitch轴角速度，计算pitch轴角速度需要迭代两次pitch轴补偿，消耗的算力较高
+    send_pitch_speed: false

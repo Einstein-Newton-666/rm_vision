@@ -1,0 +1,15 @@
+/galaxy_camera:
+  ros__parameters:
+    camera_index: 0
+    camera_name: galaxy_camera
+    flip_image: false
+    color_code: BG2BGR
+    red_blance: 1.66
+    blue_blance: 1.4844
+    green_blance: 1
+    exposure_time: 6000
+    gain: 6
+    use_sensor_data_qos: true
+    use_hard_trigger: false
+
+
