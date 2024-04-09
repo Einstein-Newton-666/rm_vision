@@ -21,7 +21,7 @@
 #include <sensor_msgs/msg/camera_info.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <visualization_msgs/msg/marker_array.hpp>
-#include <std_srvs/srv/trigger.hpp>
+// #include <std_srvs/srv/trigger.hpp>
 
 
 // STD
