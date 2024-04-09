@@ -111,7 +111,7 @@ void RMSerialDriver::receiveData()
         bool crc_ok =
           crc16::Verify_CRC16_Check_Sum(reinterpret_cast<const uint8_t *>(&packet), sizeof(packet));
         if (crc_ok) {
-          static t1 = rclcpp::Clock().now();
+          static auto t1 = rclcpp::Clock().now();
         timestamp_offset_ = this->get_parameter("timestamp_offset").as_double();
         rclcpp::Time now_time = rclcpp::Clock().now() + rclcpp::Duration::from_seconds(timestamp_offset_);
         auto_aim_interfaces::msg::RecieveData pub_pack;
