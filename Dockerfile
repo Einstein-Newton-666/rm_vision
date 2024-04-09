@@ -1,7 +1,7 @@
 FROM ros:humble-ros-base		
 
 # clone projects
-RUN git clone -b infantry_humble_version https://e.coding.net/kvm-explorer/rps24/rm_vision
+RUN git clone https://gitlab.com/Einstein-Newton-666/rm_vision.git
 
 # create workspace
 WORKDIR /rm_vision/ 
@@ -27,7 +27,8 @@ RUN  apt-get install libprotobuf-dev -y && \
 
 # build
 RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install \
-     --cmake-args -DCMAKE_BUILD_TYPE=Release
+     --cmake-args -DCMAKE_BUILD_TYPE=Release --parallel-workers 1
+
 
 # setup .zshrc
 RUN echo 'export TERM=xterm-256color\n\

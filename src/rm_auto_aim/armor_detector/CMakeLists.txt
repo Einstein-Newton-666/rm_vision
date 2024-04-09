@@ -15,6 +15,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR})
 # find dependencies
 find_package(ament_cmake_auto REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(std_srvs REQUIRED)
 
 ament_auto_find_build_dependencies()
 
