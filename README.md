@@ -31,15 +31,15 @@ HikVision 相机模块 https://gitlab.com/rm_vision/ros2_hik_camera
 拉取镜像
 
 ```
-docker pull hezhexi2002/rm_vision:backup
-```
+docker build -t rm_vision .
 
 构建开发容器
 
 ```
 sudo docker run -it --name rm_vision \
 --privileged --network host \
--v /dev:/dev -v $HOME/.ros:/root/.ros -v ws:/rm_vision \ rm_vision:latest \ 
+-v /dev:/dev -v $HOME/.ros:/root/.ros -v ws:/rm_vision \
+rm_vision:latest \ 
 ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 ```
 
